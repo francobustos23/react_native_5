@@ -81,7 +81,7 @@ export const KobeScreen = () => {
                     {renderStars()}
                 </View>
             <TouchableOpacity 
-                onPress={() => navigation.navigate('InfoKobe')}
+                onPress={() => navigation.navigate('InfoKb')}
                 style={{
                     backgroundColor: 'purple',
                     padding: 10,

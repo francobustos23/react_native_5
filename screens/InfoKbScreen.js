@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, ScrollView, Image} from 'react-native';
 
-export const StackScreen = () => {
+export const InfoKbScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
             <Text style={styles.title}>
@@ -11,7 +11,7 @@ export const StackScreen = () => {
                 Kobe Bean Bryant (Filadelfia, Pensilvania, 23 de agosto de 1978-Calabasas, California, 26 de enero de 2020)5​ fue un baloncestista estadounidense que jugaba en la posición de escolta. Disputó veinte temporadas en la NBA, todas ellas en Los Angeles Lakers.
             </Text>
             <Image 
-                 
+                style={{marginBottom:15}}
                 source={require('../img/Kobe_Bryant_8.jpg')}
             />
             <Text style={styles.text}>

@@ -1,14 +1,13 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"; 
 import { NavigationContainer } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Image } from 'react-native';
 //Screens 
-import { HomeScreen } from "./screens/HomeScreen";
-import { SettingsScreen } from "./screens/SettingsScreen";
-import { StackScreen } from "./screens/StackScreen";
+import { KobeScreen } from "./screens/KobeScreen";
+import { JordanScreen } from "./screens/JordanScreen";
+import {  InfoMjScreen } from "./screens/InfoMjScreen";
+import { InfoKbScreen } from "./screens/InfoKbScreen";
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -17,23 +16,47 @@ function MyStack() {
     
     return (    
         <HomeStackNavigator.Navigator
-            initialRouteName='HomeScreen'
+            initialRouteName='KobeScreen'
         >
             <HomeStackNavigator.Screen
-                name="HomeScreen"
-                component={HomeScreen}
+                name="KobeScreen"
+                component={KobeScreen}
                 options={{
                     headerShown: false
                 }}
             />
             <HomeStackNavigator.Screen
-                name="Stack"
-                component={StackScreen}
+                name="InfoKobe"
+                component={InfoKbScreen}
                 options={{
                     headerBackTitleVisible: false
                 }}
             />
         </HomeStackNavigator.Navigator>
+    )
+}
+
+function MyStack2() {
+    return (
+    <HomeStackNavigator.Navigator
+        initialRouteName='KobeScreen'
+    >
+        <HomeStackNavigator.Screen
+        name="MjScreen"
+        component={JordanScreen}
+        options={{
+            headerShown: false
+        }}
+        />
+        <HomeStackNavigator.Screen
+        name="InfoMj"
+        component={InfoMjScreen}
+        options={{
+            headerBackTitleVisible: false
+        }}
+        />
+
+    </HomeStackNavigator.Navigator>
     )
 }
 
@@ -48,26 +71,29 @@ function MyTabs() {
          }}
          >
             <Tab.Screen 
-                name="Home" 
+                name="KB" 
                 component={MyStack}
                 options={{
-                    tabBarLabel: 'Feed',
-                    tabBarIcon: ({color, size}) => (
-                        <MaterialCommunityIcons name="home" size={size} color={color} />
+                    tabBarLabel: 'Kobe',
+                    tabBarIcon: () => (
+                        <Image source={require('./img/logokb.png')} style={{width:20, height:20}}/>
                     ),
                     headerShown: false
                 }}
                 />
             <Tab.Screen 
-                name="Settings" 
-                component={SettingsScreen}
+                name="MJ" 
+                component={MyStack2}
                 options={{
-                    tabBarLabel: 'Settings',
+                    tabBarLabel: 'Jordan',
                     tabBarIcon: () => (
-                        <Image source={require('./img/a.png')} style={{width:20, height:20}}/>
+                        <Image source={require('./img/logomj.png')} style={{width:20, height:20}}/>
                     ),
-                    tabBarBadge:3
+                    headerShown: false,
+                    tabBarActiveTintColor: 'red'
+                    // tabBarBadge:3
                 }}
+                
                 />
         </Tab.Navigator>
     )
